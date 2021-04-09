@@ -1,8 +1,12 @@
 package model;
 
+import java.util.Objects;
+
 public class Room implements IRoom{
 
-    protected String roomNumber;
+    // The room number one set by the admin is not supposed to change . I deleted the setter.
+    protected  final String roomNumber;
+
     protected RoomTypeEnumeration roomType;
     protected double price;
     protected boolean isFree;
@@ -42,9 +46,12 @@ public class Room implements IRoom{
         this.roomType = roomType;
     }
 
+    /*
     public void setRoomNumber(String roomNumber) {
         this.roomNumber = roomNumber;
     }
+    */
+
 
     public void setPrice(double price) {
         this.price = price;
@@ -58,6 +65,24 @@ public class Room implements IRoom{
                 ", price=" + price +
                 ", isFree=" + isFree +
                 '}';
+    }
+    /*
+      equals and hashCode to determine whether the object exists or not.
+      This is especially useful while working with collections.
+      More importantly it makes it possible to use the method contains.
+     */
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Room room = (Room) o;
+        return Double.compare(room.price, price) == 0 && isFree == room.isFree && Objects.equals(roomNumber, room.roomNumber) && roomType == room.roomType;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(roomNumber, roomType, price, isFree);
     }
 }
 

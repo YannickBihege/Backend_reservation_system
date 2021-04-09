@@ -6,11 +6,11 @@ import java.util.*;
 
 public class ReservationService implements IRoom {
 
-    public static ArrayList<Reservation> reservations = new ArrayList<Reservation>();
+    public static Set<Reservation> reservations = new HashSet<>();
 
     public static Map<String, Reservation> reservationRoomIds = new HashMap<String, Reservation>();
 
-    public static ArrayList<Room> roomsList = new ArrayList<Room>();
+    public static Set<Room> roomsList = new HashSet<>();
 
     // A queue of rooms
     public static Queue<Room> freeRoomsQueue = new LinkedList<>(roomsList);
@@ -27,13 +27,24 @@ public class ReservationService implements IRoom {
     }
 
     public  static Reservation reserveARoom(Customer customer, IRoom room , Date checkIndate, Date checkOutdate){
+        // Find available rooms. That is rooms which checkOutDate are prior today. The queue of freerooms will be updated
+        findRooms( checkIndate,  checkOutdate);
+
         Reservation reservation = new Reservation(customer, room, checkIndate, checkOutdate);
 
-        return reservation;
+        if( ! reservations.contains(reservation) || freeRoomsQueue.contains(room)){
+            return reservation;
+        }
+       else{
+           System.out.println("The room is not available");
+           return null;
+       }
+
     }
 
     public static Collection<IRoom> findRooms(Date checkInDate, Date checkOutDate){
-        // TODO
+
+        // todo
         for (Room room: freeRoomsQueue
              ) {
             Date today = new Date();
@@ -44,6 +55,44 @@ public class ReservationService implements IRoom {
                 freeRoomsQueue.add((FreeRoom) room);
             }
         }
+
+        // Display the queues of available rooms
+        for (Room room: freeRoomsQueue){
+            System.out.println(room.toString());
+        }
+
+        if (freeRoomsQueue.isEmpty() ) {
+            for (Room room : freeRoomsQueue
+            ) {
+                System.out.println("List of rooms available in one week");
+                Date today = new Date();
+                Calendar calendar_first = Calendar.getInstance();
+
+                calendar_first.setTime(checkOutDate);
+                int day = calendar_first.get(Calendar.DAY_OF_MONTH);
+
+                int newDay = day + 1;
+
+                Calendar calendar_second  = Calendar.getInstance();
+                calendar_second.add(Calendar.DAY_OF_MONTH,newDay);
+
+                // if (today.after(calendar)) {
+
+                if (today.after(checkInDate)&& today.before(checkOutDate) )  {
+                    // Set the elements to free
+                    room.setFree(true);
+                    // add room to the list of free rooms
+                    freeRoomsQueue.add((FreeRoom) room);
+                }
+                else{
+                    System.out.println("No rooms available YET");
+                   // if()
+
+                }
+
+            }
+        }
+
         return (Collection<IRoom>) freeRoomsQueue.poll();
     }
 
@@ -52,12 +101,6 @@ public class ReservationService implements IRoom {
     }
 
     public static void printAllReservation(){
-        /*
-        for (Reservation reservation: reservations
-             ) {
-                System.out.println(reservation);
-        }
-        */
         System.out.println(reservations);
         for (Map.Entry<String,Reservation> entry : ReservationService.reservationRoomIds.entrySet())
             System.out.println("Key = " + entry.getKey() +

@@ -14,4 +14,14 @@ public class FreeRoom extends Room {
     public String toString() {
         return "The following room is free: available number: " + roomNumber   ;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 }

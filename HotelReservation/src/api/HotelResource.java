@@ -7,9 +7,9 @@ import model.Room;
 import service.CustomerService;
 import service.ReservationService;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Set;
 
 import static service.ReservationService.getARoom;
 
@@ -21,6 +21,11 @@ public class HotelResource {
 
     public static void createACustomer(String email, String firstName, String lastName){
 
+        /*
+          The email should be added at creation to a set of emails to ensure their uniqueness.
+         */
+        CustomerService.mails.add(email);
+
         Customer customer = new Customer(firstName, lastName ,email);
         CustomerService.customers.add(customer);
         CustomerService.customersMails.put(email, customer);
@@ -31,7 +36,7 @@ public class HotelResource {
 
     }
 
-    public static ArrayList<Room> getAllRooms(){
+    public static Set<Room> getAllRooms(){
         //TODO
         for (Room room: ReservationService.roomsList
         ) {

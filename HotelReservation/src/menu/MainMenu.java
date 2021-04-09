@@ -74,13 +74,11 @@ public class MainMenu {
                 String checkOutDate = (scanner.nextLine());
                 //Parsing the given String to Date object
                 Date DateCheckOutDate = formatter.parse(checkOutDate);
-
                 HotelResource.bookARoom(customerEmail,  room ,  dateCheckInDate,  DateCheckOutDate);
 
                 // create the reservation
                 Reservation reservation = new Reservation(CustomerService.customersMails.get(customerEmail), room, dateCheckInDate, DateCheckOutDate);
                 ReservationService.reservations.add(reservation);
-
 
                 displayMenu();
             }catch(Exception e){
