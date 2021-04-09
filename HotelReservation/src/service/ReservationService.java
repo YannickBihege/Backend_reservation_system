@@ -7,7 +7,7 @@ import java.util.*;
 public class ReservationService implements IRoom {
 
     public static Set<Reservation> reservations = new HashSet<>();
-
+    // A reservation has a customer, a room, a checkin and a checkoutdate
     public static Map<String, Reservation> reservationRoomIds = new HashMap<String, Reservation>();
 
     public static Set<Room> roomsList = new HashSet<>();
