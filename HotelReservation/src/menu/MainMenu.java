@@ -83,6 +83,7 @@ public class MainMenu {
                 displayMenu();
             }catch(Exception e){
                 System.out.println("Not a valid roomNumber");
+                displayMenu();
             }
 
             displayMenu();

@@ -23,6 +23,10 @@ public class Room implements IRoom{
         return roomNumber;
     }
 
+    public String getRoomNumberFind() {
+        return roomNumber;
+    }
+
     @Override
     public double getRoomPrice(double price) {
         return 0;

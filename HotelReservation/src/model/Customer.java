@@ -18,11 +18,15 @@ public class Customer {
         this.firstName = firstName;
         this.lastName = lastName;
 
-        if (!pattern.matcher(email).matches()) {
-            throw new IllegalArgumentException("Please give a valid email:");
-        }else{
-            this.email = email;
-                }
+        try {
+            if (!pattern.matcher(email).matches()) {
+                throw new IllegalArgumentException("Please give a valid email:");
+            } else {
+                this.email = email;
+            }
+        }catch(Exception e){
+            System.out.println("The email does not follow a required pattern");
+        }
     }
 
 
