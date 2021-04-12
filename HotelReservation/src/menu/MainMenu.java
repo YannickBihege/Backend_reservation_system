@@ -3,7 +3,6 @@ package menu;
 import api.HotelResource;
 import model.Reservation;
 import model.Room;
-import model.RoomTypeEnumeration;
 import service.CustomerService;
 import service.ReservationService;
 
@@ -72,12 +71,25 @@ public class MainMenu {
                     System.out.println("Enter the desired checkOutDate: yyyy-dd-MM");
                     String checkOutDate = (scanner.nextLine());
                     //Parsing the given String to Date object
-                    Date DateCheckOutDate = formatter.parse(checkOutDate);
-                    HotelResource.bookARoom(customerEmail, room, dateCheckInDate, DateCheckOutDate);
+
+                    Date dateCheckOutDate = formatter.parse(checkOutDate);
+
+                    Date today = new Date();
+
+                    if(  dateCheckInDate.after(today) && dateCheckOutDate.after(today) &&     dateCheckInDate.before(dateCheckOutDate)) {
+                        HotelResource.bookARoom(customerEmail, room, dateCheckInDate, dateCheckOutDate);
+
+
+                    }
+                    else{
+                        System.out.println("Please retry, your check out Date should be posterior to your check-in." +
+                                "Your check-in and check-out dates cannot be in the past");
+                        displayMenu();
+                    }
 
                     // create the reservation
-                    Reservation reservation = new Reservation(CustomerService.customersMails.get(customerEmail), room, dateCheckInDate, DateCheckOutDate);
-                    ReservationService.reservations.add(reservation);
+                   Reservation reservation = new Reservation(CustomerService.customersMails.get(customerEmail), room, dateCheckInDate, dateCheckOutDate);
+                   ReservationService.reservations.add(reservation);
 
                     displayMenu();
                 } catch (Exception e) {
@@ -95,7 +107,6 @@ public class MainMenu {
                     String customerEmail = (scanner.nextLine());
 
                     // System.out.println(HotelResource.getCustomersReservations(customerEmail) );
-
                     // Find all reservation
                     System.out.println("List of all reservations");
                     ReservationService.printAllReservation();
@@ -133,16 +144,23 @@ public class MainMenu {
                 displayMenu();
             }
             case 4: {
-                displayAdminMenu();
+                // displayAdminMenu();
+                DisplayAdminMenu.displayAdminMenu();
             }
             case 5: {
                 System.out.println("Exit the application");
                 exitProgram();
             }
+
+            default:{
+                System.out.println("Entry not valid");
+                displayMenu();
+            }
         }
 
     }
 
+        /*
         public static void numberSelectionAdmin ( int selection){
             if (selection == 1) {
                 System.out.println("List of customers");
@@ -203,40 +221,46 @@ public class MainMenu {
                 System.out.println("This is not a valid entry: choose a number from the menu");
                 displayAdminMenu();
             }
-        }
+        }  // End of the function */
 
-        public static void displayAdminMenu () {
-            displayLine();
-            System.out.println("ADMINISTRATION MENU");
-            System.out.println("1.See all Customers");
-            System.out.println("2.See all rooms");
-            System.out.println("3.See all Reservations");
-            System.out.println("4.Add a room");
-            System.out.println("5.Exit");
-            displayLine();
 
-            boolean errorValidation = false;
-            do {
-                Scanner scanner = new Scanner(System.in);
-                System.out.println("Please select a number for the menu option");
-                int selection = Integer.parseInt(scanner.nextLine());
-                numberSelectionAdmin(selection);
-                System.out.println("This is not a valid entry: displayAdminMenu()");
+        //public static void displayAdminMenu () {
+          //  displayLine();
+    //   System.out.println("ADMINISTRATION MENU");
+    //   System.out.println("1.See all Customers");
+    //   System.out.println("2.See all rooms");
+    //   System.out.println("3.See all Reservations");
+    //   System.out.println("4.Add a room");
+        //   System.out.println("5.Exit");
+    //    displayLine();
 
-            /*
-            try (Scanner scanner = new Scanner(System.in)) {
-                System.out.println("Please select a number for the menu option");
-                int selection = Integer.parseInt(scanner.nextLine());
-                numberSelectionAdmin(selection);
+    //    boolean errorValidation = false;
+    //   do {
+    //       Scanner scanner = new Scanner(System.in);
+    //      System.out.println("Please select a number for the menu option");
+    //     int selection = Integer.parseInt(scanner.nextLine());
+    //     numberSelectionAdmin(selection);
+    //     System.out.println("This is not a valid entry: displayAdminMenu()");
 
-            } catch (Exception e) {
-                System.out.println("This is not a valid entry: displayAdminMenu()");
-                inputValid = false;
-                System.out.println("Value of inputValid: " + inputValid);
-            }
-             */
-            } while (errorValidation);
-        }
+                /**
+                 * Originaly commented
+                 // try (Scanner scanner = new Scanner(System.in)) {
+                 //   System.out.println("Please select a number for the menu option");
+                 //  int selection = Integer.parseInt(scanner.nextLine());
+                 //  numberSelectionAdmin(selection);
+
+                 // } catch (Exception e) {
+                 //  System.out.println("This is not a valid entry: displayAdminMenu()");
+                 // inputValid = false;
+                 // System.out.println("Value of inputValid: " + inputValid);
+                 //  }*/
+                // }
+                //
+
+    //     }while (errorValidation);
+                //   }
+
+
 
         public static int exitProgram () {
             return 0;

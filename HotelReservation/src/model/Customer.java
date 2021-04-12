@@ -10,7 +10,7 @@ public class Customer {
     private String email;
 
 
-    private final String emailRegex ="(.+)@(.+).com";
+    private static final String emailRegex ="(.+)@(.+).com";
     private final Pattern pattern = Pattern.compile(emailRegex);
 
 

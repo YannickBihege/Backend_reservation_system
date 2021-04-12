@@ -15,6 +15,16 @@ import static service.ReservationService.getARoom;
 
 public class HotelResource {
 
+    /*
+    private static HotelResource hotelResource = new HotelResource();
+    private HotelResource(){
+    }
+    public static HotelResource getInstance(){
+        return hotelResource;
+    }
+    */
+
+
     public Customer getCustomer(String email){
         return CustomerService.customersMails.get(email);
     }

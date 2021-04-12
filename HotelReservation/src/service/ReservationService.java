@@ -28,9 +28,15 @@ public class ReservationService implements IRoom {
         Room returnedRoom = null ;
 
         for (Room room: roomsList){
+            /*
                 if(room.equals(room.getRoomNumber(roomId))){
                     returnedRoom = room;
                 }
+                */
+            if(room.getRoomNumberFind().equals(roomId)){
+                returnedRoom = room;
+            }
+
         }
         return returnedRoom;
     }
