@@ -19,13 +19,11 @@ public class CustomerService {
           The email address should be available. I introduced a set to verify the availability.
          */
             Customer customer = new Customer(firstName, lastName, email);
-
             if(! customers.contains(customer) && ! mails.contains(email) ){
                 // Add it to the arraylist customers
                 customers.add(customer);
                 // add it to the map
                 customersMails.put(email,customer);
-
             }
             else {
                 System.out.println("The corresponding customer already exists. Choose a different email address.");

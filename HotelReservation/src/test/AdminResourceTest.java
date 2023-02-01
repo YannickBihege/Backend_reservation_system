@@ -7,14 +7,21 @@ import model.RoomTypeEnumeration;
 import service.CustomerService;
 import service.ReservationService;
 
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 public class AdminResourceTest {
 
     public static void main(String[] args) {
+        //Test getCustomer
         getCustomerReturnsEmailCustomerSetIsEmpty();
+        // Test addRoom
         addRoomAddElementTo();
+        // Test customer service
+        getAllCustomersIsnotnull();
     }
-    CustomerService customerService = new CustomerService();
-    ReservationService reservationService = new ReservationService();
     public static void getCustomerReturnsEmailCustomerSetIsEmpty() {
         Customer result = CustomerService.customersMails.get("mail@y.com");
         if(result != null) {
@@ -40,7 +47,19 @@ public class AdminResourceTest {
         } else {
             System.out.println("addRoomAddElementTo Passed");
         }
+    }
 
+    public static void getAllCustomersIsnotnull(){
+        Set<Customer> customers = new HashSet<Customer>();
+        CustomerService.addCustomer("yaa@ymail.com","Y","Y");
 
+        Collection<Customer> result = CustomerService.getAllCustomers();
+        if(result.isEmpty()) {
+            throw new RuntimeException(String.format(
+                    "getAllCustomers not Passed. A customer has been created."
+            ));
+        } else {
+            System.out.println("getAllCustomersIsnotnull Passed");
+        }
     }
 }
