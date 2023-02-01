@@ -30,7 +30,7 @@ public class AdminResource {
                 System.out.println("This is not a valid entry for the room number:");
                 inputValid = false;
             }
-        }while(inputValid == false);
+        }while(!inputValid);
 
         // Enum type validation
         do{
@@ -50,7 +50,7 @@ public class AdminResource {
                 System.out.println("This is not a valid entry for the room type");
                 inputValid = false;
             }
-        }while(inputValid == false);
+        }while(!inputValid);
 
         do{
             try (Scanner scanner = new Scanner(System.in)) {
@@ -61,22 +61,22 @@ public class AdminResource {
                 System.out.println("This is not a valid entry for a price.");
                 inputValid = false;
             }
-        }while(inputValid == false);
+        }while(!inputValid);
 
         // Inputs are validated
         Room room = new model.Room(String.valueOf(roomNumber), roomType , price, isFree);
-        ReservationService.freeRoomsQueue.add((FreeRoom) room);
+        ReservationService.freeRoomsQueue.add(room);
     }
 
 
     public Collection<Customer> getAllCustomers(){
         /**
-         * The collection is imported from the customerservice.
+         * The collection is imported from the customer service.
          * @returns the function returns a list of customers.
          */
         for (Customer customer: CustomerService.customers
         ) {
-            System.out.println(customer);
+            //System.out.println(customer);
         }
         return CustomerService.customers;
     }

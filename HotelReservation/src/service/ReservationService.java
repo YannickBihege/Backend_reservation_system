@@ -24,15 +24,10 @@ public class ReservationService implements IRoom {
 
     public static IRoom getARoom(String roomId){
 
-            //return (IRoom) reservationRoomIds.get(roomId);
         Room returnedRoom = null ;
 
         for (Room room: roomsList){
-            /*
-                if(room.equals(room.getRoomNumber(roomId))){
-                    returnedRoom = room;
-                }
-                */
+
             if(room.getRoomNumberFind().equals(roomId)){
                 returnedRoom = room;
             }
@@ -59,44 +54,7 @@ public class ReservationService implements IRoom {
 
     }
 
-    /*
-    public static Collection<IRoom> findRooms(Date checkInDate, Date checkOutDate){
-        // check the current availability
-        // The best way to check for availabilty is to check for the reservation
-        Date today = new Date();
-        // iterate through reservations and free the rooms which checkOutDate are past.
-            for (Reservation reservation : reservations) {
-                  // coherence in out
-                if(checkInDate.before(checkOutDate) &&
-                        reservation.getCheckInDate().before(reservation.getCheckOutDate())
-                        // check for availabilty list for A GIVEN IN OUT INTERVAL
-                && (
-                checkInDate.after(reservation.getCheckOutDate()))
-                ){
-                    // Then the room is not reserved
-                    reservation.getRoom().isFree(true); // The room is free
-                    //remove the element from the list of reservations
-                    reservations.remove(reservation);
-                      //update the hashmap
-                    Reservation value = null;
-                    String retrievedRoomNumber = null;
 
-                    for (Entry<String, Reservation> entry : reservationRoomIds.entrySet()) {
-                        if (entry.getValue()== (value)) {
-                            // Retrieve the room number from the map
-                            retrievedRoomNumber = entry.getKey();
-                            reservationRoomIds.remove(retrievedRoomNumber);
-                        }
-                    }
-            } //
-        }
-        // Display the queues of available rooms
-        for (Room room: freeRoomsQueue){
-            System.out.println(room.toString());
-        }
-        return null;
-    }
-    */
     public static Collection<IRoom> findRooms(Date checkInDate, Date checkOutDate){
         Collection<IRoom> availableRoomsPeriod = new HashSet<>();
         Collection<IRoom> availableRoomsNext = new HashSet<>();

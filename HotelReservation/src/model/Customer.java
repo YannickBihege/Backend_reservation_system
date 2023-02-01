@@ -9,10 +9,8 @@ public class Customer {
     private String lastName;
     private String email;
 
-
     private static final String emailRegex ="(.+)@(.+).com";
     private final Pattern pattern = Pattern.compile(emailRegex);
-
 
     public Customer(String firstName, String lastName, String email){
         this.firstName = firstName;

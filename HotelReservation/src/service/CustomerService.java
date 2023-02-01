@@ -6,7 +6,6 @@ import java.util.*;
 
 public class CustomerService {
 
-    // public static  ArrayList<Customer> customers = new ArrayList<Customer>();
     public static Set<Customer> customers = new HashSet<Customer>();
 
     public static Set<String> mails = new HashSet<String>();
@@ -15,9 +14,9 @@ public class CustomerService {
 
     public static void addCustomer(String email, String firstName, String lastName){
         /*
-          Customers is defined as a set . That is a list of unique elements.
-          Therefore the customer is not added if the object already exists.
-          The email address should be available. I introduced a set to verify the availability
+          Customers are defined as a set . That is a list of unique elements.
+          Therefore, the customer is not added if the object already exists.
+          The email address should be available. I introduced a set to verify the availability.
          */
             Customer customer = new Customer(firstName, lastName, email);
 
@@ -36,7 +35,7 @@ public class CustomerService {
 
     public static Customer getCustomer(String customerEmail){
         /**
-         * @params Takes a customer email as onput
+         * @params Takes a customer email as input
          * @returns a customer on the base of a Map of key values: <email, Customer></email,>
          */
         return customersMails.get(customerEmail);

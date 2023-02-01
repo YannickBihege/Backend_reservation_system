@@ -2,8 +2,8 @@ package model;
 
 public class FreeRoom extends Room {
     /**
-     * Freeroom extends the class Room.
-     * The class Room implements the interface IRoom
+     * The class 'Freeroom' extends the class Room.
+     * The class Room implements the interface IRoom.
      */
 
     public FreeRoom(String roomNumber, RoomTypeEnumeration roomTypeEnumeration, double price, boolean isFree){

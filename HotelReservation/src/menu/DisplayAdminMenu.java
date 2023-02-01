@@ -59,7 +59,7 @@ public class DisplayAdminMenu {
                     boolean isFree = Boolean.parseBoolean(scanner.nextLine());
 
                     Room room = new Room(String.valueOf(roomNumber), roomtype, price, isFree);
-                    System.out.println(room.toString());
+                    System.out.println(room);
                     ReservationService.roomsList.add(room);
                     displayAdminMenu();
 

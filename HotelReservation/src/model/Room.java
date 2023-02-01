@@ -50,11 +50,6 @@ public class Room implements IRoom{
         this.roomType = roomType;
     }
 
-    /*
-    public void setRoomNumber(String roomNumber) {
-        this.roomNumber = roomNumber;
-    }
-    */
 
 
     public void setPrice(double price) {
