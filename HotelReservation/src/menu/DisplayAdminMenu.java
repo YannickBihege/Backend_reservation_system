@@ -32,16 +32,13 @@ public class DisplayAdminMenu {
             displayAdminMenu();
         } else if (selection == 4) {
             System.out.println("Add a room");
-
             boolean errorValidation = false;
             do {
                 try (Scanner scanner = new Scanner(System.in)) {
                     System.out.println("Please enter a room number:");
                     int roomNumber = Integer.parseInt(scanner.nextLine());
-
                     System.out.println("Please enter a roomType: single or double please:");
                     String roomTypeEntry = (scanner.nextLine());
-
                     RoomTypeEnumeration roomtype = null;
                     if (roomTypeEntry.equals("single")) {
                         roomtype = RoomTypeEnumeration.SINGLE;
@@ -51,18 +48,14 @@ public class DisplayAdminMenu {
                         System.out.println("Not a valid room type");
                         displayAdminMenu();
                     }
-
                     System.out.println("Please enter a price");
                     double price = Double.parseDouble(scanner.nextLine());
-
                     System.out.println("Boolean isFree: enter true");
                     boolean isFree = Boolean.parseBoolean(scanner.nextLine());
-
                     Room room = new Room(String.valueOf(roomNumber), roomtype, price, isFree);
                     System.out.println(room);
                     ReservationService.roomsList.add(room);
                     displayAdminMenu();
-
                 } catch (Exception e) {
                     System.out.println("This is not a valid entry numberSelectionAdmin(intern) ");
                     displayAdminMenu();
@@ -95,8 +88,6 @@ public class DisplayAdminMenu {
             int selection = Integer.parseInt(scanner.nextLine());
             numberSelectionAdmin(selection);
             System.out.println("This is not a valid entry: displayAdminMenu()");
-
-
         } while (errorValidation);
     }
 }

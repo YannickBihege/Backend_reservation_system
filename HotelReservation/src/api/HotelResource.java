@@ -22,8 +22,7 @@ public class HotelResource {
     public static void createACustomer(String email, String firstName, String lastName) {
 
         /*
-          The email should be added at creation to a set
-          of emails to ensure their uniqueness.
+          The email should be added to a set to ensure their uniqueness.
          */
         CustomerService.mails.add(email);
         Customer customer = new Customer(firstName, lastName, email);
@@ -33,14 +32,10 @@ public class HotelResource {
 
     public static IRoom getRoom(String roomNumber) {
         return getARoom(roomNumber);
-
     }
 
     public static Set<Room> getAllRooms() {
-        for (Room room : ReservationService.roomsList
-        ) {
-            System.out.println(room.toString());
-        }
+
         return ReservationService.roomsList;
     }
 

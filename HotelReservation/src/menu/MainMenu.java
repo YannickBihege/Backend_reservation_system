@@ -27,7 +27,7 @@ public class MainMenu {
         System.out.println("2.See my reservations");
         System.out.println("3.Create an account");
         System.out.println("4.Admin");
-        System.out.println("5.Exit admin Modus");
+        System.out.println("5.Exit admin Mod");
         displayLine();
 
         boolean errorValidation = false;
@@ -54,28 +54,20 @@ public class MainMenu {
 
                     System.out.println("Please enter the email corresponding to your account ");
                     String customerEmail = (scanner.nextLine());
-
                     System.out.println("Enter the desired room number");
                     int roomNumber = Integer.parseInt(scanner.nextLine());
-                    //
                     HotelResource.getRoom(String.valueOf(roomNumber));
                     Room room = (Room) HotelResource.getRoom(String.valueOf(roomNumber));
-
                     System.out.println("Enter the desired checkInDate: yyyy-dd-MM");
                     String checkInDate = (scanner.nextLine());
-
                     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-dd-MM");
                     //Parsing the given String to Date object
                     Date dateCheckInDate = formatter.parse(checkInDate);
-
                     System.out.println("Enter the desired checkOutDate: yyyy-dd-MM");
                     String checkOutDate = (scanner.nextLine());
                     //Parsing the given String to Date object
-
                     Date dateCheckOutDate = formatter.parse(checkOutDate);
-
                     Date today = new Date();
-
                     if (dateCheckInDate.after(today) && dateCheckOutDate.after(today) && dateCheckInDate.before(dateCheckOutDate)) {
                         HotelResource.bookARoom(customerEmail, room, dateCheckInDate, dateCheckOutDate);
                     } else {
@@ -83,31 +75,24 @@ public class MainMenu {
                                 "Your check-in and check-out dates cannot be in the past");
                         displayMenu();
                     }
-
                     // create the reservation
                     Reservation reservation = new Reservation(CustomerService.customersMails.get(customerEmail), room, dateCheckInDate, dateCheckOutDate);
                     ReservationService.reservations.add(reservation);
-
                     displayMenu();
                 } catch (Exception e) {
                     System.out.println("Not a valid roomNumber");
                     displayMenu();
                 }
-
                 displayMenu();
             }
             case 2: {
                 System.out.println("See my reservations");
-                // TOD0
                 try (Scanner scanner = new Scanner(System.in)) {
                     System.out.println("Enter an email associated with a reservation");
                     String customerEmail = (scanner.nextLine());
-
-                    // System.out.println(HotelResource.getCustomersReservations(customerEmail) );
                     // Find all reservation
                     System.out.println("List of all reservations");
                     ReservationService.printAllReservation();
-
                     displayMenu();
                 } catch (Exception e) {
                     System.out.println("Not a valid mail");
@@ -122,39 +107,31 @@ public class MainMenu {
                     try (Scanner scanner = new Scanner(System.in)) {
                         System.out.println("Please enter an email");
                         String email = (scanner.nextLine());
-
                         System.out.println("Please your first name");
                         String firstName = (scanner.nextLine());
-
                         System.out.println("Please enter your last name");
                         String lastName = (scanner.nextLine());
-
                         HotelResource.createACustomer(email, firstName, lastName);
                         System.out.println("Account successfully created");
                         displayMenu();
-
                     } catch (Exception e) {
                         System.out.println("This is not a valid. Re-try to create an account ");
                     }
                 } while (errorValidation);
-
                 displayMenu();
             }
             case 4: {
-                // displayAdminMenu();
                 DisplayAdminMenu.displayAdminMenu();
             }
             case 5: {
                 System.out.println("Exit the application");
                 exitProgram();
             }
-
             default: {
                 System.out.println("Entry not valid");
                 displayMenu();
             }
         }
-
     }
 
     public static int exitProgram() {

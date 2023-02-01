@@ -45,10 +45,6 @@ public class CustomerService {
         /**
          * @returns the function returns a list of customers.
          */
-        for (Customer customer: customers
-             ) {
-            System.out.println(customer);
-        }
             return customers;
     }
 }

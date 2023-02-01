@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class Customer {
 
     private String firstName;
-    private String lastName;
+    private final String lastName;
     private String email;
 
     private static final String emailRegex ="(.+)@(.+).com";
@@ -58,7 +58,7 @@ public class Customer {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Customer customer = (Customer) o;
-        return Objects.equals(firstName, customer.firstName) && Objects.equals(lastName, customer.lastName) && Objects.equals(email, customer.email) && Objects.equals(emailRegex, customer.emailRegex) && Objects.equals(pattern, customer.pattern);
+        return Objects.equals(firstName, customer.firstName) && Objects.equals(lastName, customer.lastName) && Objects.equals(email, customer.email) && Objects.equals(emailRegex, emailRegex) && Objects.equals(pattern, customer.pattern);
     }
 
     @Override
