@@ -74,10 +74,6 @@ public class AdminResource {
          * The collection is imported from the customer service.
          * @returns the function returns a list of customers.
          */
-        for (Customer customer: CustomerService.customers
-        ) {
-            //System.out.println(customer);
-        }
         return CustomerService.customers;
     }
 

@@ -13,25 +13,20 @@ public class ReservationService implements IRoom {
     // All the rooms
     public static Set<Room> roomsList = new HashSet<>();
 
-    // A queue of rooms
+    // A queue of rooms available
     public static Set<Room> freeRoomsQueue = new HashSet<>();
 
-
     public static void addRoom(IRoom room){
-        // Add a room to the list of rooms
        roomsList.add((Room) room);
     }
 
     public static IRoom getARoom(String roomId){
 
         Room returnedRoom = null ;
-
         for (Room room: roomsList){
-
             if(room.getRoomNumberFind().equals(roomId)){
                 returnedRoom = room;
             }
-
         }
         return returnedRoom;
     }
@@ -39,11 +34,9 @@ public class ReservationService implements IRoom {
     public  static Reservation reserveARoom(Customer customer, IRoom room , Date checkIndate, Date checkOutdate){
         Reservation reservation = new Reservation(customer, room, checkIndate, checkOutdate);
         if( ! reservations.contains(reservation) || freeRoomsQueue.contains(room)){
-            // Add it to the set of reservations
             reservations.add(reservation);
             String retrievedRoomnumber = null;
             retrievedRoomnumber = room.getRoomNumberFind();
-            // Update the hashmap
             reservationRoomIds.put(retrievedRoomnumber, reservation);
             return reservation;
         }
@@ -83,14 +76,11 @@ public class ReservationService implements IRoom {
                            System.out.println(room.toString());
                        }
                     }
-
             }
         }
-
         return availableRoomsPeriod;
 
     }
-
 
     public static Collection<Reservation> getCustomersReservation(Customer customer){
             return reservations;

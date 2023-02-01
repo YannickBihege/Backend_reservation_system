@@ -22,7 +22,8 @@ public class HotelResource {
     public static void createACustomer(String email, String firstName, String lastName) {
 
         /*
-          The email should be added at creation to a set of emails to ensure their uniqueness.
+          The email should be added at creation to a set
+          of emails to ensure their uniqueness.
          */
         CustomerService.mails.add(email);
         Customer customer = new Customer(firstName, lastName, email);

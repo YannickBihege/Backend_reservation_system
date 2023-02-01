@@ -10,11 +10,9 @@ public class Tester {
          *
          */
 
-
         Date today = new Date();
         Calendar calendar = Calendar.getInstance();
         System.out.println(calendar.getTime());
-
         System.out.println("-----------------------------||-----------------------------------");
 
         int day = calendar.get(Calendar.DAY_OF_MONTH);

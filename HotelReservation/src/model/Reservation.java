@@ -37,7 +37,6 @@ public class Reservation {
 
     public void addCustomer(String email, String firstName, String lastName){
         Customer customer = new Customer(firstName, lastName, email);
-
         CustomerService.customers.add(customer);
         CustomerService.customersMails.put(email, customer);
     }

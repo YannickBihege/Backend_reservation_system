@@ -4,7 +4,8 @@ import java.util.Objects;
 
 public class Room implements IRoom{
 
-    // The room number one set by the admin is not supposed to change . I deleted the setter.
+    // The room number one set by the admin is not supposed to change .
+    // I deleted the setter.
     protected  final String roomNumber;
 
     protected RoomTypeEnumeration roomType;
@@ -49,7 +50,6 @@ public class Room implements IRoom{
     public void setRoomType(RoomTypeEnumeration roomType) {
         this.roomType = roomType;
     }
-
 
 
     public void setPrice(double price) {
