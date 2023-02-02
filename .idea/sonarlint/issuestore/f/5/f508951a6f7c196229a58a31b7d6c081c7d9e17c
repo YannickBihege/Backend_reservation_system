@@ -1,0 +1,44 @@
+
+ƒ
+java:S4165("mRemove this useless assignment; "errorValidation" already holds the assigned value along all execution paths.(Ç’÷ë
+N
+java:S2589,"8Remove this expression which always evaluates to "false"(âœ«²
+N
+java:S2589x"8Remove this expression which always evaluates to "false"(âœ«²
+N	java:S106"9Replace this use of System.out or System.err by a logger.(³‘Š×
+S	java:S106"9Replace this use of System.out or System.err by a logger.(§ëô¿ùÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(¤ù–éüÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(Ô©üº
+S	java:S106"9Replace this use of System.out or System.err by a logger.(¼Äáüÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(éÔİï
+N	java:S106$"9Replace this use of System.out or System.err by a logger.(ªğµ
+S	java:S106'"9Replace this use of System.out or System.err by a logger.(ŞËìûÿÿÿÿ
+S	java:S106*"9Replace this use of System.out or System.err by a logger.(Ÿ‡Äıÿÿÿÿ
+a	java:S128~"LEnd this switch case with an unconditional break, return or throw statement.(Ó‚ï
+a	java:S128{"LEnd this switch case with an unconditional break, return or throw statement.(ÎŞèº
+f	java:S128f"LEnd this switch case with an unconditional break, return or throw statement.(úÀôãùÿÿÿÿ
+f	java:S128X"LEnd this switch case with an unconditional break, return or throw statement.(ğÁ–Óûÿÿÿÿ
+f	java:S1281"LEnd this switch case with an unconditional break, return or throw statement.(·ÿ½äûÿÿÿÿ
+S	java:S1062"9Replace this use of System.out or System.err by a logger.(¹Î‰¸ûÿÿÿÿ
+S	java:S1067"9Replace this use of System.out or System.err by a logger.(…çÈüÿÿÿÿ
+N	java:S1069"9Replace this use of System.out or System.err by a logger.(É¼Úõ
+N	java:S106="9Replace this use of System.out or System.err by a logger.(úÄùĞ
+N	java:S106B"9Replace this use of System.out or System.err by a logger.(ğ·¼ş
+N	java:S106J"9Replace this use of System.out or System.err by a logger.(œ™ò•
+N	java:S106S"9Replace this use of System.out or System.err by a logger.(èğ‡Ò
+S	java:S106Y"9Replace this use of System.out or System.err by a logger.(ÛÂ¶ùÿÿÿÿ
+N	java:S106["9Replace this use of System.out or System.err by a logger.(ÚôÙû
+M
+java:S1481\"2Remove this unused "customerEmail" local variable.(†ï»—ÿÿÿÿÿ
+S	java:S106^"9Replace this use of System.out or System.err by a logger.(š®’Şùÿÿÿÿ
+S	java:S106b"9Replace this use of System.out or System.err by a logger.(é¯ãıÿÿÿÿ
+L	java:S106g"9Replace this use of System.out or System.err by a logger.(âÎ&
+N	java:S106l"9Replace this use of System.out or System.err by a logger.(¬Â§ÿ
+S	java:S106n"9Replace this use of System.out or System.err by a logger.(Å¨ÇÛøÿÿÿÿ
+S	java:S106p"9Replace this use of System.out or System.err by a logger.(ë—û‹ÿÿÿÿÿ
+N	java:S106s"9Replace this use of System.out or System.err by a logger.(×â¢Ş
+N	java:S106v"9Replace this use of System.out or System.err by a logger.(•»â¥
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ÎÕäµüÿÿÿÿ
+O	java:S106ƒ"9Replace this use of System.out or System.err by a logger.(¢—Ğ«
+P
+java:S3400Š"9Remove this method and declare a constant for this value.(”·³›

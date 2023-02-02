@@ -1,0 +1,36 @@
+
+o
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(¢õ£ç
+k	java:S1178"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³Ÿ«áþÿÿÿÿ
+k	java:S117="QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õ³ŒŒÿÿÿÿÿ
+m
+java:S1104	"XMake reservations a static final constant or non-public and provide accessors if needed.(ŸšÐ:
+t
+java:S1104"^Make reservationRoomIds a static final constant or non-public and provide accessors if needed.(¢õ£ç
+k
+java:S1104"UMake roomsList a static final constant or non-public and provide accessors if needed.(ÉÓˆ²
+u
+java:S1104"ZMake freeRoomsQueue a static final constant or non-public and provide accessors if needed.(²õ·âýÿÿÿÿ
+G
+java:S1444	"2Make this "public static reservations" field final(ŸšÐ:
+N
+java:S1444"8Make this "public static reservationRoomIds" field final(¢õ£ç
+E
+java:S1444"/Make this "public static roomsList" field final(ÉÓˆ²
+O
+java:S1444"4Make this "public static freeRoomsQueue" field final(²õ·âýÿÿÿÿ
+2
+java:S2386	"Make this member "protected".(ŸšÐ:
+3
+java:S2386"Make this member "protected".(¢õ£ç
+3
+java:S2386"Make this member "protected".(ÉÓˆ²
+8
+java:S2386"Make this member "protected".(²õ·âýÿÿÿÿ
+S	java:S106,"9Replace this use of System.out or System.err by a logger.(‡Ò¦âþÿÿÿÿ
+N	java:S106J"9Replace this use of System.out or System.err by a logger.( ¹É 
+S	java:S106L"9Replace this use of System.out or System.err by a logger.(¬çÑáøÿÿÿÿ
+J
+java:S1172U"/Remove this unused method parameter "customer".(³û…ñøÿÿÿÿ
+S	java:S106Z"9Replace this use of System.out or System.err by a logger.(ù–›Âúÿÿÿÿ
+N	java:S106\"9Replace this use of System.out or System.err by a logger.(†¬Æ”
